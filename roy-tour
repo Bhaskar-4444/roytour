@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Roy Tours and Travels</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    header {
+      background-color: #fff;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .logo {
+      height: 60px;
+    }
+
+    .banner {
+      width: 100%;
+      height: 90vh;
+      background-image: url('1 home page.jpg');
+      background-size: cover;
+      background-position: center;
+    }
+
+    .slideshow-container {
+      position: relative;
+      max-width: 100%;
+      margin: auto;
+    }
+
+    .slides {
+      display: none;
+      width: 100%;
+      height: 80vh;
+      object-fit: cover;
+    }
+
+    .prev, .next {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      padding: 16px;
+      color: white;
+      font-weight: bold;
+      font-size: 24px;
+      border-radius: 3px;
+      background-color: rgba(0,0,0,0.4);
+    }
+
+    .prev { left: 0; }
+    .next { right: 0; }
+
+    .prev:hover, .next:hover {
+      background-color: rgba(0,0,0,0.7);
+    }
+
+    .about {
+      background-color: #f4f4f4;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .about h2 {
+      color: #444;
+    }
+
+    .about p {
+      max-width: 800px;
+      margin: auto;
+      color: #555;
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    footer {
+      background-color: #6b4f37;
+      color: white;
+      text-align: center;
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="logo roy tours.png" alt="Roy Tours Logo" class="logo" />
+  </header>
+
+  <div class="banner"></div>
+
+  <div class="slideshow-container">
+    <!-- Add your image file names below -->
+    <img class="slides" src="2  (1).jpg" />
+    <img class="slides" src="2  (2).jpg" />
+    <img class="slides" src="2  (3).jpg" />
+    <img class="slides" src="2  (4).jpg" />
+    <img class="slides" src="2  (5).jpg" />
+    <img class="slides" src="2  (6).jpg" />
+    <img class="slides" src="2  (7).jpg" />
+    <img class="slides" src="2  (8).jpg" />
+    <img class="slides" src="2  (9).jpg" />
+    <img class="slides" src="2  (10).jpg" />
+
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+  </div>
+
+  <section class="about">
+    <h2>About Roy Tours</h2>
+    <p>Roy Tours is your gateway to exploring the true essence of India. From the serene beauty of the Himalayas
+    to the vibrant deserts of Rajasthan, from the spiritual banks of the Ganges to the peaceful backwaters of Kerala —
+    we curate memorable travel experiences that reflect the diversity and heritage of our great nation.
+    Our mission is to connect travelers with the heart of India, through customized journeys that are meaningful, safe, and unforgettable.</p>
+  </section>
+
+  <footer>
+    <p>Contact: +91-7050462102 | Email: rowdybro4444@gmail.com</p>
+  </footer>
+
+  <script>
+    let slideIndex = 0;
+    const slides = document.getElementsByClassName("slides");
+
+    function showSlides() {
+      for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      slideIndex++;
+      if (slideIndex > slides.length) { slideIndex = 1; }
+      slides[slideIndex - 1].style.display = "block";
+      setTimeout(showSlides, 5000); // Change image every 5 seconds
+    }
+
+    function plusSlides(n) {
+      slideIndex += n - 1;
+      if (slideIndex < 0) slideIndex = slides.length - 1;
+      if (slideIndex >= slides.length) slideIndex = 0;
+      for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      slides[slideIndex].style.display = "block";
+    }
+
+    showSlides();
+  </script>
+
+</body>
+</html>
