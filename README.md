@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Roy Tours and Travels</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: Arial, sans-serif; }
+
+    header {
+      background-color: #fff;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .logo {
+      height: 60px;
+    }
+
+    .slideshow-container {
+      position: relative;
+      width: 100%;
+      height: 90vh;
+      overflow: hidden;
+    }
+
+    .slides {
+      display: none;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .active-slide {
+      display: block;
+    }
+
+    .prev, .next {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      padding: 16px;
+      color: white;
+      font-weight: bold;
+      font-size: 24px;
+      background-color: rgba(0,0,0,0.4);
+      border-radius: 3px;
+      z-index: 2;
+    }
+
+    .prev { left: 0; }
+    .next { right: 0; }
+
+    .prev:hover, .next:hover {
+      background-color: rgba(0,0,0,0.7);
+    }
+
+    footer {
+      background-color: #6b4f37;
+      color: white;
+      text-align: center;
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <img src="logo.png" alt="Roy Tours Logo" class="logo" />
+</header>
+
+<div class="slideshow-container">
+  <img class="slides active-slide" src="slide1.jpg" alt="Slide 1" />
+  <img class="slides" src="slide2.jpg" alt="Slide 2" />
+  <img class="slides" src="slide3.jpg" alt="Slide 3" />
+  <img class="slides" src="slide4.jpg" alt="Slide 4" />
+
+  <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+  <a class="next" onclick="changeSlide(1)">&#10095;</a>
+</div>
+
+<footer>
+  <p>Contact: +91-7050462102 | Email: rowdybro4444@gmail.com</p>
+</footer>
+
+<script>
+  let currentSlide = 0;
+  const slides = document.querySelectorAll('.slides');
+
+  function showSlide(index) {
+    slides.forEach((slide, i) => {
+      slide.classList.remove('active-slide');
+      if (i === index) slide.classList.add('active-slide');
+    });
+  }
+
+  function changeSlide(n) {
+    currentSlide += n;
+    if (currentSlide >= slides.length) currentSlide = 0;
+    if (currentSlide < 0) currentSlide = slides.length - 1;
+    showSlide(currentSlide);
+  }
+
+  setInterval(() => {
+    changeSlide(1);
+  }, 5000);
+</script>
+
+</body>
+</html>
